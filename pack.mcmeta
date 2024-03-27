@@ -1,0 +1,6 @@
+{
+    "pack": {
+        "pack_format": 37,
+        "description": "A minecraft data pack library that can react 20Hz to right clicks in multiple ways"
+    }
+}

@@ -1,0 +1,21 @@
+[
+    {
+        "function": "minecraft:set_attributes",
+        "modifiers": [
+            {
+                "attribute": "minecraft:generic.luck",
+                "name": "tungsten.head",
+                "amount": -9.094947017729282e-13,
+                "operation": "add_value",
+                "id": "c-0-a455-0-c",
+                "slot": "head"
+            }
+        ]
+    },
+    {
+        "function": "minecraft:toggle_tooltips",
+        "toggles": {
+            "minecraft:attribute_modifiers": false
+        }
+    }
+]
