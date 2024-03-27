@@ -1,5 +1,6 @@
 {
     "values": [
-      "tungsten:load"
+      "tungsten:load",
+      "nylon:load"
       ]
 }
