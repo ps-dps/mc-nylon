@@ -1,12 +1,26 @@
 {
     "condition": "minecraft:inverted",
     "term": {
-        "condition": "minecraft:value_check",
-        "value": {
-            "type": "minecraft:score",
-            "target": "this",
-            "score": "nylon.id"
-        },
-        "range": 0
+        "condition": "minecraft:all_of",
+        "terms": [
+            {
+                "condition": "minecraft:value_check",
+                "value": {
+                    "type": "minecraft:score",
+                    "target": "this",
+                    "score": "nylon.mainhand"
+                },
+                "range": 0
+            },
+            {
+                "condition": "minecraft:value_check",
+                "value": {
+                    "type": "minecraft:score",
+                    "target": "this",
+                    "score": "nylon.offhand"
+                },
+                "range": 0
+            }
+        ]
     }
 }

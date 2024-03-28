@@ -5,8 +5,20 @@
             "conditions": {
                 "player": [
                     {
-                        "condition": "minecraft:reference",
-                        "name": "nylon:has_item"
+                        "condition": "minecraft:all_of",
+                        "terms": [
+                            {
+                                "condition": "minecraft:reference",
+                                "name": "nylon:has_item"
+                            },
+                            {
+                                "condition": "minecraft:inverted",
+                                "term": {
+                                    "condition": "minecraft:reference",
+                                    "name": "nylon:is_blocked"
+                                }
+                            }
+                        ]
                     }
                 ],
                 "item": {

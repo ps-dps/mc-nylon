@@ -1,6 +1,1 @@
-{
-    "values": [
-      "tungsten:load",
-      "nylon:load"
-      ]
-}
+{"values": ["tungsten:load","nylon:load"]}
