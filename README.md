@@ -10,7 +10,8 @@ That is what this library aims to do efficiently while providing a user friendly
 For nylon to work for your custom item, you need to do the following things.
 
 ### 1. Add the item to the `nylon:items` tag
-Since it gives more performance, nylon only checks items of a certain id, for your item to work, just add the base id of the item you are planning to use to the `nylon:items` items tag located at `data/nylon/tags/items/items.json`.
+Since it is benefitial in terms of performance, nylon only checks items of certain ids.
+For your item to work, just add the base id of the item you are planning to use to the `nylon:items` items tag located at `data/nylon/tags/items/items.json`.
 
 When adding a `poisonous_potato` to it, the tag would look like this:
 ```json
@@ -20,6 +21,9 @@ When adding a `poisonous_potato` to it, the tag would look like this:
 ### 2. Add the `food` component
 If you add the `food` component with `0` `nutrition`, `0` `saturation`, `100000` `eat_seconds` and `true` for `can_always_eat` the item won't play an eating animation nor the sound and can always be used to detect right clicks.
 
+> [!Note]
+> You will still get slowed while holding down right click, there is currently now way around that limitation
+
 In a `give`-command it could look like this:
 ```mcfunction
 give @s poisonous_potato[food={nutrition:0,saturation:0,eat_seconds:100000,can_always_eat:true}]
@@ -27,16 +31,29 @@ give @s poisonous_potato[food={nutrition:0,saturation:0,eat_seconds:100000,can_a
 
 In a loot-table or item-modifier it could look like this:
 ```json
-{ "minecraft:food": {
-    "nutrition": 0,
-    "saturation": 0,
-    "eat_seconds": 100000,
-    "can_always_eat": true
-}}
+{
+    "function": "minecraft:set_components",
+    "components": {
+        "minecraft:food": {
+            "nutrition": 0,
+            "saturation": 0,
+            "eat_seconds": 100000,
+            "can_always_eat": true
+}}}
 ```
 
 ### 3. Add `custom_data` for nylon
-...
+Add `nylon:1b` as custom data to your item.
+
+In a `give`-command, the component looks like this:
+```
+[custom_data={nylon:1b}]
+```
+
+In a loot-table or item-modifier it looks like this:
+```json
+{ "function": "minecraft:set_custom_data", "tag": "{nylon:1b}" }
+```
 
 ### 4. Register it in tungsten
 [tungsten](https://github.com/PuckiSilver/mc-tungsten) is another library that is included in this one, it is used to efficiently detect what item the player is holding.
@@ -71,32 +88,19 @@ Inside of the functions you add to these function tags, you have access to the f
 | Type | Name | Explanation |
 | - | - | - |
 | Selector | `@s` | The player pressing right click |
+| Location | `~ ~ ~` | Location of the player |
 | Scoreboard | `@s nylon.charge` | Time in ticks that right click was held |
 | Predicate | `nylon:is_mainhand` | If the Item is in the players mainhand |
 | Predicate | `nylon:is_offhand` | If the Item is in the players offhand |
 
+## Applying cooldown
+You can block nylon's right click detection for a specific amount of time by setting `@s nylon.blocked_until` to the gametime at which the player can first use right click again.
 
+To block the right click detection for 2 seconds (40 ticks), you can run the following commands as the player:
+```mcfunction
+execute store result score @s nylon.blocked_until run time query gametime
+scoreboard players add @s nylon.blocked_until 40
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-register
-in nylon:items eintragen
-tungsten aktivieren (item mod)
-in #nylon:begin/charge/finish function gegistrieren
-
-cooldown
-if @s nylon.blocked_until >= (time query gametime), nylon blocked
-
-in function you can
-check nylon:is_mainhand/is_offhand
-@s nylon.charge -> ticks rclick has been held for
+---
+[![PuckiSilver on GitHub](https://raw.githubusercontent.com/PuckiSilver/static-files/main/link_logos/GitHub.png)](https://github.com/PuckiSilver)[![PuckiSilver on modrinth](https://raw.githubusercontent.com/PuckiSilver/static-files/main/link_logos/modrinth.png)](https://modrinth.com/user/PuckiSilver)[![PuckiSilver on PlanetMinecraft](https://raw.githubusercontent.com/PuckiSilver/static-files/main/link_logos/PlanetMinecraft.png)](https://planetminecraft.com/m/PuckiSilver)[![PuckiSilver on PayPal](https://raw.githubusercontent.com/PuckiSilver/static-files/main/link_logos/PayPal.png)](https://paypal.me/puckisilver)
