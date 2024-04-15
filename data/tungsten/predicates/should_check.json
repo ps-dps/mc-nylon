@@ -1,0 +1,51 @@
+{
+    "condition": "minecraft:any_of",
+    "terms": [
+        {
+            "condition": "minecraft:value_check",
+            "value": {
+                "type": "minecraft:score",
+                "target": {
+                    "type": "minecraft:fixed",
+                    "name": ".new"
+                },
+                "score": "tungsten.uid"
+            },
+            "range": 2147483647
+        },
+        {
+            "condition": "minecraft:inverted",
+            "term": {
+                "condition": "minecraft:entity_scores",
+                "entity": "this",
+                "scores": {
+                    "tungsten.uid": {
+                        "min": {
+                            "type": "minecraft:score",
+                            "target": {
+                                "type": "minecraft:fixed",
+                                "name": ".new"
+                            },
+                            "score": "tungsten.uid"
+                        },
+                        "max": {
+                            "type": "minecraft:score",
+                            "target": {
+                                "type": "minecraft:fixed",
+                                "name": ".new"
+                            },
+                            "score": "tungsten.uid"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "condition": "minecraft:entity_scores",
+            "entity": "this",
+            "scores": {
+                "tungsten.dirty": 1
+            }
+        }
+    ]
+}

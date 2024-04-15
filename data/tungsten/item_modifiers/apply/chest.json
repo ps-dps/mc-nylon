@@ -10,7 +10,8 @@
                 "id": "c-0-a455-0-d",
                 "slot": "chest"
             }
-        ]
+        ],
+        "replace": false
     },
     {
         "function": "minecraft:toggle_tooltips",

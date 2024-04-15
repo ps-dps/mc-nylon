@@ -10,7 +10,8 @@
                 "id": "c-0-a455-0-e",
                 "slot": "legs"
             }
-        ]
+        ],
+        "replace": false
     },
     {
         "function": "minecraft:toggle_tooltips",

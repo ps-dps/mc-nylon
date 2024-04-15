@@ -6,4 +6,5 @@ scoreboard objectives add tungsten.uid.head dummy
 scoreboard objectives add tungsten.uid.chest dummy
 scoreboard objectives add tungsten.uid.legs dummy
 scoreboard objectives add tungsten.uid.feet dummy
-schedule function tungsten:main 1t
+scoreboard objectives add tungsten.dirty dummy
+function tungsten:tick

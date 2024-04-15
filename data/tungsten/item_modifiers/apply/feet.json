@@ -10,7 +10,8 @@
                 "id": "c-0-a455-0-f",
                 "slot": "feet"
             }
-        ]
+        ],
+        "replace": false
     },
     {
         "function": "minecraft:toggle_tooltips",
