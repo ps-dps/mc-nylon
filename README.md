@@ -1,5 +1,5 @@
-# mc-nylon
-A minecraft data pack library that can react 20Hz to right clicks in multiple ways
+# Nylon
+A library to handle 20hz right click detection
 
 ## Overview
 Using the `food` component introduced in the 1.20.5 snapshots, we can detect right clicks on pretty much any item at a rate of 20 times per second. This way we can not only react to pressing right click but also holding right click.
@@ -22,7 +22,7 @@ When adding a `poisonous_potato` to it, the tag would look like this:
 If you add the `food` component with `0` `nutrition`, `0` `saturation`, `100000` `eat_seconds` and `true` for `can_always_eat` the item won't play an eating animation nor the sound and can always be used to detect right clicks.
 
 > [!Note]
-> You will still get slowed while holding down right click, there is currently now way around that limitation
+> You will still get slowed while holding down right click, there is currently now way around that limitation.
 
 In a `give`-command it could look like this:
 ```mcfunction
@@ -56,7 +56,7 @@ In a loot-table or item-modifier it looks like this:
 ```
 
 ### 4. Register it in tungsten
-[tungsten](https://github.com/PuckiSilver/mc-tungsten) is another library that is included in this one, it is used to efficiently detect what item the player is holding.
+[Tungsten](https://github.com/PuckiSilver/mc-tungsten) is another library that is included in this one, it is used to efficiently detect what item the player is holding.
 
 To quickly set up tungsten, just apply the modifier `tungsten:apply/<slot>` to the item for the mainhand and/or offhand.
 
