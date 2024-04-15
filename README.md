@@ -47,7 +47,7 @@ Add `nylon:1b` as custom data to your item.
 
 In a `give`-command, the component looks like this:
 ```
-[custom_data={nylon:1b}]
+give @s poisonous_potato[custom_data={nylon:1b}]
 ```
 
 In a loot-table or item-modifier it looks like this:
